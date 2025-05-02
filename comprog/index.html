@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>Home</title>
+    <style>
+      /* Custom styles for SweetAlert */
+      .swal2-popup {
+        font-size: 0.75rem;
+        border-radius: 1px;
+        background-color: #f8f9fa;
+        color: #000000;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 16px;
+        background: rgb(216, 216, 227, 0.3);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(20px);
+        width: 90%;
+        height: auto;
+        margin: 1px;
+      }
+      .swal2-title {
+        font-weight: bold;
+        color: #000000; /* Custom title color */
+      }
+      .swal2-content {
+        color: #000000; /* Custom text color */
+      }
+      .swal2-actions {
+        display: flex;
+        justify-content: center;
+      }
+      .swal2-confirm {
+        background-color: #000000; /* Custom button background color */
+        border-color: #000000; /* Custom button border color */
+        font-weight: bold;
+        font-size: 0.75rem;
+        padding: 5px 10px;
+      }
+      .swal2-confirm:hover {
+        background-color: #0772e4; /* Custom hover color */
+        border-color: #000000;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body class="body1">
+    <div class="navbar">
+      <div class="menu-options">
+        <div id="home">Home</div>
+        <div id="about">About us</div>
+        <div id="darkModeToggle">Theme</div>
+        <div id="contact">Contact</div>
+      </div>
+    
+      <div class="profile-container">
+        <button class="profile-button" onclick="toggleMenu1()">👤 User</button>
+        <div class="dropdown-menu" id="profileDropdown">
+          <a href="#">Settings</a>
+          <a href="#">Account</a>
+          <a href="#">Sign Out</a>
+        </div>
+      </div>
+    </div>
+      <div class="suggestions-container" id="suggestionsContainer">
+        <ul id="suggestionsList">
+            <!-- Suggestions will be added dynamically here -->
+        </ul>
+    </div>
+
+    <div class="main-content">
+      N.U.T.R.I.
+      <br />
+      <p>Nutritional Utility for Transformative Recipe Innovator</p>
+      
+    </div>
+    <div class="search-container">
+      <input
+        type="text"
+        spellcheck="true"
+        id="searchInput"
+        placeholder="Search. (e.g salt, pork, etc.)"
+        oninput="showSuggestions(this.value)"
+      />
+      <button type="button" onclick="search()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-search"
+        >
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.3-4.3" />
+        </svg>
+      </button>
+    </div>
+    <h1>The Importance of Healthy Eating</h1>
+    <p class="introduction">A healthy diet consists of nutrient-rich foods like fruits, vegetables, whole grains, lean proteins, and healthy fats, which are essential for daily functioning and long-term health. These foods support immune function, boost energy, enhance mental and physical performance, and help prevent chronic diseases such as obesity, diabetes, and heart disease. Choosing whole, unprocessed foods promotes a healthy gut and overall well-being, while limiting processed foods, sugar, and salt is crucial for maintaining good health.</p>
+
+    <div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+   </div>
+
+    <script src="script.js" defer></script>
+    <script>
+      function toggleMenu1() {
+        const menu = document.getElementById("profileDropdown");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+      }
+    
+      // Close dropdown when clicking outside
+      window.addEventListener("click", function(e) {
+        const dropdown = document.getElementById("profileDropdown");
+        if (!e.target.closest(".profile-container")) {
+          dropdown.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
